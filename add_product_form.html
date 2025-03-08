@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Add Product Form</title>
+    <link rel="stylesheet" href="{% static 'css/add_product_form.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add a Product - Amazon Seller</h1>
+        <form id="add-product-form"  method="POST" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            <!-- Basic Info -->
+            <fieldset>
+                <legend>Basic Information</legend>
+                <div class="form-group">
+                    <label for="product-title">Product Title *</label>
+                    <input type="text" name="pro-title" id="product-title"  maxlength="200" placeholder="e.g., Sony WH-1000XM5 Headphones" required>
+                    <small>Max 200 characters</small>
+                </div>
+                <div class="form-group">
+                    <label for="brand">Brand Name *</label>
+                    <input type="text" id="brand" name="brand" placeholder="e.g., Sony" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select a category</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="home">Home & Kitchen</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sku">Quantity *</label>
+                    <input type="number" id="sku" name="quantity" placeholder="e.g., 10" required>
+                </div>
+            </fieldset>
+
+            <!-- Pricing -->
+            <fieldset>
+                <legend>Pricing</legend>
+                <div class="form-group">
+                    <label for="price">Price (IND) *</label>
+                    <input type="number" id="price" name="price" step="0.01" min="0" placeholder="e.g., 349.99" required>
+                </div>
+                <div class="form-group">
+                    <label for="sale-price">Sale Price (Optional)</label>
+                    <input type="number" id="sale-price" name="sale-price" step="0.01" min="0" placeholder="e.g., 299.99">
+                </div>
+            </fieldset>
+
+            <!-- Images -->
+            <fieldset>
+                <legend>Images</legend>
+                <div class="form-group">
+                    <label for="main-image">Main Image *</label>
+                    <input type="file" id="main-image" name="main-image" accept="image/*" required>
+                    <small>Min 1000x1000px, white background</small>
+                </div>
+                <div class="form-group">
+                    <label for="additional-images">Additional Images</label>
+                    <input type="file" id="additional-images" name="additional-images" accept="image/*" multiple>
+                    <small>Up to 6 additional images</small>
+                </div>
+            </fieldset>
+
+            <!-- Description -->
+            <fieldset>
+                <legend>Description</legend>
+                <div class="form-group">
+                    <label for="bullet-points">Key Features (Bullet Points) *</label>
+                    <textarea id="bullet-points" name="bullet-points" rows="5" placeholder="e.g., - Active Noise Cancellation&#10;- 30-Hour Battery Life" required></textarea>
+                    <small>Up to 5 points</small>
+                </div>
+                <div class="form-group">
+                    <label for="description">Product Description *</label>
+                    <textarea id="description" name="description" rows="5" maxlength="2000" placeholder="Detailed description..." required></textarea>
+                    <small>Max 2000 characters</small>
+                </div>
+            </fieldset>
+
+            <!-- Specifications -->
+            <fieldset>
+                <legend>Specifications</legend>
+                <div class="form-group">
+                    <label for="color">Color</label>
+                    <input type="text" id="color" name="color" placeholder="e.g., Black">
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (lbs) *</label>
+                    <input type="number" id="weight" name="weight" step="0.01" min="0" placeholder="e.g., 0.55" required>
+                </div>
+            </fieldset>
+
+            <!-- Submit -->
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+</body>
+</html>

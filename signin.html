@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign In or Create Account</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Amazon</div>
+        <div class="signin-box">
+            <h2>Sign in or create account</h2>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="email_or_username" placeholder="Enter your Username or email" value="{{username | default:''}}" required>
+                
+                {% if show_password_box %}
+                    <input type="password" name="password" placeholder="Enter your Password" required>
+                {% endif %}
+                {% if message %}
+                    <p class="user_not_found_message">{{message}}</p>
+                    <a href="{% if u_action %}{% url 'register' %}{% endif %} {% if p_action %} {% url 'signin' %} {% endif %}">{% if u_action %}{{u_action}}{% endif %} {% if p_action %} {{p_action}} {% endif %}</a>
+                
+                {% endif %}
+                <button type="submit">{% if show_password_box %} login {% else %} Continue {% endif %}</button>
+                <p class="conditions">By continuing, you agree to Amazon's Conditions of Use and Privacy Notice.</p>
+            </form>
+        </div>
+        <div class="business-link">
+            <p>Buying for work?</p>
+            <a href="#">Shop on Amazon Business</a>
+        </div>
+        <div class="footer">
+            <a href="#">Conditions of Use</a> | 
+            <a href="#">Privacy Notice</a> | 
+            <a href="#">Help</a>
+            <p>&copy; 1996-2025, Amazon.com, Inc. or its affiliates</p>
+        </div>
+    </div>
+    <script src="{% static 'js/signin.js' %}"></script> <!-- Optional: Add interactivity later -->
+</body>
+</html>

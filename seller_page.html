@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>amazon.cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/amazon_home.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/seller_page.css' %}" >
+    <script type="module" src="cart.js"></script>
+</head>
+<body>
+    <div class="heading">
+        <div class="logo">
+            <a href="{% url 'index' %}"><img class="photo" src="{% static 'd_photos/amazon_logo.png' %}"></a>
+            
+        </div>
+        <div class="location">
+            <button class="locationbutton">Delivering to Hyderabad 5000018</Delivering><br><b class="update">Update location</b></button>
+        </div>
+        <div class="search">
+            <div class="all">
+                <button class="allbutton">All &#11167;</button>
+            </div>
+            <div class="search bar">
+                <input class="searchbar" type="search" onkeypress="
+                    check_enter();
+                    " placeholder="Search Amazon.in">
+                <button class="magni" onclick="printsearch();" type="submit"><i class="fa fa-search"></i></button>
+
+            </div>
+            
+            <div class="india">
+                <img class="flag" src="photos/flag.png">
+                <button class="enbutton"><b>En</b>&#11167;</button>
+            </div>
+        </div>
+        <div class="right">
+           <div class="greatings">Welcome, <br>{{seller_name}}</div>
+           <a class="add_product_button" href="/add-products"><i class='fas fa-list' style='font-size:24px'></i>Add product</a>
+        </div> 
+    </div>
+    <div class="middle-border-cart">
+        
+        Your products
+    </div>
+    <div class="js-product-list">
+        <div class="maincart-head">
+            {% for pro in products %}
+            <div class="maincart">
+                <div class="img1">
+            
+                    <img class="cart-img" src="media/{{pro.main_img}}">
+                </div>
+                <div class="pro-det">
+                    <div class="pro-name">{{pro.product_title}}
+        
+                    </div>
+                    <div class="stock-button">In stock</div>
+                    <div class="elig-button">Eligible for FREE Shipping</div>
+                    <div class="price-text">
+                        <div style="font-weight: bolder; font-size: 20px;">Price:</div>
+                        <div style="font-size: 17px;margin-left: 7px; font-weight: bold;color: #b12704; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">&#8377;{{pro.selling_price}}</div>
+                    </div>
+                    <div class="change-cart-buttons">
+                        <div class="quen-button-div"><button class="qty-button">Qty: {{pro.quantity}}</button></div>
+                        <div class="line">|</div>
+                        <div class="delete-button">Delete</div>
+                        <div class="line">|</div>
+                        <div class="delete-button">Share</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+           
+        </div>
+        <!-- <div class="total-price-div"><div class="elig-for-free-del"> a</div>
+        <p class="eligible-for-free-delivery-text">Your order is eligible for FREE delivery</p><p class="subtotal-text">Subtotal(2 items):<span style="font-weight: 600;" >&#8377;99,998.00</span></p> <p class="gift-text"><input type="checkbox">This order contains a gift</p><button class="proceed-to-pay-button">Proceed to Buy</button>
+        
+    </div> -->
+
+    
+   
+</body>

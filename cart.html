@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>amazon.cart</title>
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/amazon_home.css' %}">
+    <link rel="stylesheet" type="text/css" href="amazon-cart.css" >
+    <script type="module" src="cart.js"></script>
+</head>
+<body>
+    <div class="heading">
+        <div class="logo">
+            <a href="amazon-clone.html"><img class="photo" src="{% static 'd_photos/amazon_logo.png' %}"></a>
+            
+        </div>
+        <div class="location">
+            <button class="locationbutton">Delivering to Hyderabad 5000018</Delivering><br><b class="update">Update location</b></button>
+        </div>
+        <div class="search">
+            <div class="all">
+                <button class="allbutton">All &#11167;</button>
+            </div>
+            <div class="search bar">
+                <input class="searchbar" type="search" onkeypress="
+                    check_enter();
+                    " placeholder="Search Amazon.in">
+                <button class="magni"  type="submit"><i class="fa fa-search"></i></button>
+
+            </div>
+            
+            <div class="india">
+                <img class="flag" src="{% static 'd_photos/flag.png' %}">
+                <button class="enbutton"><b>En</b>&#11167;</button>
+            </div>
+        </div>
+        <div class="right">
+            <div class="signin">
+                <button class="signinbutton">{{greatings}}<br><b>Account & Lists&#11167;</b></button>
+            </div>
+            <div class="js-signin"></div>
+            <div class="order">
+                <button class="orderbutton js-return">Returns<br><b>&Orders</b></button>
+            </div>
+        </div> 
+    </div>
+    <div class="middle-border-cart">
+        
+        Your cart
+    </div>
+    <div class="js-product-list">
+        <div class="maincart-head">
+            <div class="maincart">
+                <div class="img1">
+            
+                    <img class="cart-img" src="{% static 'd_photos/d99.jpg' %}">
+                </div>
+                <div class="pro-det">
+                    <div class="pro-name">Oneplus Z9x 5G (Tornado Green, 6GB RAM, 128GB Storage) | Snapdragon 6 Gen 1 with 560k+ AnTuTu Score | 6000mAh Battery with 7.99mm Slim Design | 44W FlashCharge.
+        
+                    </div>
+                    <div class="stock-button">In stock</div>
+                    <div class="elig-button">Eligible for FREE Shipping</div>
+                    <div class="price-text">
+                        <div style="font-weight: bolder; font-size: 20px;">Price:</div>
+                        <div style="font-size: 17px;margin-left: 7px; font-weight: bold;color: #b12704; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">&#8377;49,999</div>
+                    </div>
+                    <div class="change-cart-buttons">
+                        <div class="quen-button-div"><button class="qty-button">Qty: 1</button></div>
+                        <div class="line">|</div>
+                        <div class="delete-button">Delete</div>
+                        <div class="line">|</div>
+                        <div class="delete-button">Share</div>
+                    </div>
+                </div>
+            </div>
+            <div class="maincart">
+                <div class="img1">
+               
+                    <img class="cart-img" src="{% static 'd_photos/d88.jpg' %}">
+                </div>
+                <div class="pro-det">
+                    <div class="pro-name">Redme 13 5g (Blue, 6GB RAM, 128GB Storage) | Snapdragon 5 Gen 2 with 590k+ AnTuTu Score | 5500mAh Battery with 7.8mm Slim Design | 33W FlashCharge.
+        
+                    </div>
+                    <div class="stock-button">In stock</div>
+                    <div class="elig-button">Eligible for FREE Shipping</div>
+                    <div class="price-text">
+                        <div style="font-weight: bolder; font-size: 20px;">Price:</div>
+                        <div style="font-size: 17px;margin-left: 7px; font-weight: bold;color: #b12704; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">&#8377;49,999</div>
+                    </div>
+                    <div class="change-cart-buttons">
+                        <div class="quen-button-div"><button class="qty-button">Qty: 1</button></div>
+                        <div class="line">|</div>
+                        <div class="delete-button">Delete</div>
+                        <div class="line">|</div>
+                        <div class="delete-button">Share</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="total-price-div"><div class="elig-for-free-del"> a</div>
+        <p class="eligible-for-free-delivery-text">Your order is eligible for FREE delivery</p><p class="subtotal-text">Subtotal(2 items):<span style="font-weight: 600;" >&#8377;99,998.00</span></p> <p class="gift-text"><input type="checkbox">This order contains a gift</p><button class="proceed-to-pay-button">Proceed to Buy</button>
+        
+    </div>
+
+    
+   
+</body>

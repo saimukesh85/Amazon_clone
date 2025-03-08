@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>amazon.clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <link rel="stylesheet" type="text/css" href="amazon.css" >
+    <script src="{% static 'js/home_page.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/amazon_home.css' %}">
+</head>
+<body>
+    <div class="heading">
+        <div class="logo">
+            <img class="photo" src="{% static 'd_photos/amazon_logo.png' %}">
+        </div>
+        <div class="location">
+            <button class="locationbutton">Delivering to mandapur 5000018</Delivering><br><b class="update">Update location</b></button>
+        </div>
+       <div class="search">
+            <div class="all">
+                <button class="allbutton">All &#11167;</button>
+            </div>
+            <div class="search bar">
+                <input class="searchbar" type="search" onkeypress="
+                    check_enter();
+                    " placeholder="Search Amazon.in">
+                <button class="magni" onclick="printsearch();" type="submit"><i class="fa fa-search"></i></button>
+
+            </div>
+            
+            <div class="india">
+                <img class="flag" src="{% static 'd_photos/flag.png' %}">
+                <button class="enbutton"><b>En</b>&#11167;</button>
+            </div>
+       </div>
+        <div class="right">
+            <div class="signin">
+                <button class="signinbutton" onclick="signed();">{{greatings}}<br><b>Account & Lists&#11167;</b></button>
+            </div>
+            <div class="js-signin">
+                {% if user.is_authenticated %}
+                    <div class="user_profile_div">
+                        <div class="user_in_name">Name:  {{user.first_name}}</div><br>
+                        <div class="user_in_email">Email: {{user.email}}</div><br>
+                        <div class="is_seller">ACC Type : {%if user.is_seller %}Seller {%else%} Customer {%endif%} </div><br>
+                        <a class="signout_button" href="/signout/">logout</a>
+                    </div>
+                {% else %}
+                    <div class="asking_user_to_sigin">
+                        <div class="user_in">If already have an account :</div>
+                        <div class="button_div">
+                            <a href="/signin/" class="signin_button" >Signin</a>
+                        </div><br>
+                        <div class="user_in">Else : </div>
+                        <div class="button_div">
+                            <a href="/register/" class="signin_button">Sign up</a>
+                        </div>
+                    </div>
+                {% endif %}
+                    
+            </div>
+            {% if not user.is_seller %}
+                <div class="order">
+                    <button class="orderbutton">Returns<br><b>&Orders</b></button>
+                </div>
+                <div class="cart-div">
+                    <a href="/cart" ><img class="cart" src="{% static 'd_photos/cart_img.png' %}"></a>
+                    
+                </div>
+                <div class="cart-count">
+                    <p class="cart-count-num"></p>
+                </div>
+            {% else %}
+                <div class="seller_profile">
+                    <a href="/seller" class="seller_photo"><i class='fas fa-user-alt' style="font-size: 24px;"></i></a>
+                    <a href="/seller" class="seller_name">Seller : {{user.username}}</a>
+                    
+                </div>
+                <div class="cart-div">
+                    <a href="/cart" target="_blank"><img class="cart" src="{% static 'd_photos/cart_img.png' %}"></a>
+                </div>
+                
+            {% endif %}
+        </div> 
+       
+       
+
+    </div>
+    <div class="middle-border">
+        <div class="b1">
+            <button class="middle-button">&#9776;All</button>
+
+        </div>
+        <div class="b2">
+            <button class="middle-button">Freash</button>
+        </div>
+        <div class="b3">
+            <button class="middle-button">Amazon miniTV</button>
+        </div>
+        <div class="b4">
+            <button class="middle-button">Sell</button>
+        </div>
+        <div class="b5">
+            <button class="middle-button">Best Sellers</button>
+        </div>
+        <div class="b6">
+            <button class="middle-button">mobiles</button>
+        </div>
+        <div class="b7">
+            <button class="middle-button">Today`s Deals</button>
+        </div>
+        <div class="b8">
+            <button class="middle-button">Fashion</button>
+        </div>
+        <div class="b9">
+            <button class="middle-button">Electronics</button>
+        </div>
+        <div class="b10">
+            <button class="middle-button">Prime</button>
+        </div>
+        <div class="b11">
+            <button class="middle-button">Home&Kitchen</button>
+        </div>
+        <div class="b12">
+            <button class="middle-button">Custamer Searvice</button>
+        </div>
+        <div class="b13">
+            <button class="middle-button">New Release</button>
+        </div>
+
+    </div>
+    <!-- <div class="bodi">
+        <img class="add" src="{% static 'd_photos/temp2 - copy.jpg' %}">
+    </div>
+    <div class="deals">
+        <h3 class="deal">Today`s Deals</h3>
+    </div>
+    <div class="products">
+        {% for item in products %}
+        <div>
+            <button class="second-row-product-img">
+                <img class="image_bd" src="media/{{item.main_img}}">
+            </button>
+            <button class="add-to-cart-button" ">Add to Cart</button>
+        </div>
+        <div>
+            <button class="second-row-product-img">
+                <img class="image_bd" src="media/{{item.main_img}}">
+            </button>
+            <button class="add-to-cart-button" ">Add to Cart</button>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="second-row-heading">
+        
+            <p class="second-row-text">Related to items you've viewed</p>
+       
+    </div>
+    <div class="second-row-of-items">
+        
+        {% for item in products %}
+        <div>
+            <button class="second-row-product-img">
+                <img class="image_bd" src="media/{{item.main_img}}">
+            </button>
+            <button class="add-to-cart-button" ">Add to Cart</button>
+        </div>
+        <div>
+            <button class="second-row-product-img">
+                <img class="image_bd" src="media/{{item.main_img}}">
+            </button>
+            <button class="add-to-cart-button" ">Add to Cart</button>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="end-but-one">
+        <img class="amazon-img-end" src="photos/Screenshot 2024-06-05 220402.png">
+    </div>
+    <div class="end">
+        <p class="last-text">This is just clone of amazon website(for practice purpose)</p>
+    </div>
+     -->
+    <div class="scrolling-body-div">
+        <div class="background-image-div">
+            <img class="background-image" id="changingImage" src="{% static 'd_photos/temp7.jpg' %}">
+        </div>
+        <div class="scrolling-semi-body">
+            <div class="first-row-items-heading-div">Today`s Deals</div>
+            <div class="items-row-div">
+                {% for item in products|slice:":5" %}
+                    <div class="item-row-inner-div">
+                        <img class="item-image" src="media/{{item.main_img}}">
+                        <button class="add-to-cart-button">Add to Cart</button>
+                        
+                    </div>
+                    
+                
+                {%endfor%}
+            </div><br>
+            <div class="first-row-items-heading-div">Deals for you</div>
+            <div class="items-row-div">
+                {% for item in products|slice:"5:10" %}
+                    <div class="item-row-inner-div">
+                        <img class="item-image" src="media/{{item.main_img}}">
+                        <button class="add-to-cart-button">Add to Cart</button>
+                        
+                    </div>
+                    
+                
+                {%endfor%}
+            </div>
+        </div>
+
+    </div>
+    
+
+</body>

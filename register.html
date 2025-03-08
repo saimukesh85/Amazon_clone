@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create Account</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Amazon.in</div>
+        <div class="register-box">
+            <h2>Create Account</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder=" Username" required>
+                    
+                </div>
+               
+                <div class="form-group">
+                    <label for="email">Gmail</label>
+                    <input type="email" id="mail" name="mail" placeholder=" amazon@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Your name</label>
+                    <input type="text" id="name" name="name" placeholder="First and last name" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password (at least 6 characters)</label>
+                    <input type="password" id="password" name="password1" placeholder="Password" required>
+                    <p class="password-info">Passwords must be at least 6 characters.</p>
+                    <label for="password"> Confirm Password </label>
+                    <input type="password" id="password" name="password2" placeholder="Confirm Password" required>
+                    
+                </div>
+                <div class="asking_for_seller">Are you seller 
+                    <input  type="hidden" name="is_seller" value=0 >
+                    <input class="check_box" type="checkbox" name="is_seller" value=1 >
+                </div>
+                <button type="submit">Register</button>
+                <p class="verify-text">To verify your number, we will send you a text message with a temporary code. Message and data rates may apply.</p>
+            </form>
+            <p>Already a customer? <a href="{% url 'signin' %}">Sign in instead</a></p>
+            <div class="business-link">
+                <p>Buying for work?</p>
+                <a href="#">Create a free business account</a>
+            </div>
+            <p class="policy-text">By creating an account or logging in, you agree to Amazon's Conditions of Use and Privacy Policy.</p>
+        </div>
+        <div class="footer">
+            <a href="#">Conditions of Use</a> | 
+            <a href="#">Privacy Notice</a> | 
+            <a href="#">Help</a>
+            <p>© 1996-2025, Amazon.com, Inc. or its affiliates</p>
+        </div>
+    </div>
+    <script src="{% static 'js/register.js' %}"></script> <!-- Optional: Add interactivity later -->
+</body>
+</html>
