@@ -1,0 +1,168 @@
+.middle-border-cart{
+    background-color: #fde35e;
+    padding-top: 55px;
+    margin-top: 20px;
+    height: 40px;
+    padding-left: 720px;
+    font-size: 30px;
+    font-weight: bolder;
+    padding-bottom: 20px;
+}
+.maincart-head{
+    margin-top: 50px;
+}
+.maincart{
+    background-color: white;
+    
+    margin-left: 50px;
+    
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2px;
+    
+}
+
+.greatings{
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+.greatings:hover{
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+
+.add_product_button{
+    margin-left: 55px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px;
+}
+.add_product_button:hover{
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+}
+.cart-img{
+    width: 250px;
+}
+
+.fa-list{    
+    margin-left: 25px;
+}
+
+.pro-det{
+    margin: 20px;
+}
+.pro-name{
+     
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 18px;
+    
+}
+.stock-button{
+    color: #007600;
+    margin-top: 10px;
+}
+.elig-button{
+    margin-top: 5px;
+    font-size: 14px;
+    color: #565959;
+}
+.price-text{
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+}
+
+.qty-button{
+   border-radius: 6px;
+   border-width: 1px;
+   padding: 5px 26px 5px 11px;
+   border-color: #dbe0e0;
+   box-shadow: none;
+}
+.qty-button:hover{
+    background-color: rgb(224, 223, 223);
+}
+.change-cart-buttons{
+    display: flex;
+    flex-direction: row;
+    
+    margin-top: 15px;
+}
+.line{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 4px;
+    color: #dddddd;
+}
+.delete-button{
+    margin-top: 4px;
+    color: #007185;
+}
+.delete-button:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.total-price-div{
+    background-color: white;
+    margin-top: 50px;
+    width: 500px;
+    margin-left: 40px;
+    max-height: 200px;
+}
+.js-product-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.elig-for-free-del{
+    background-color: #067d62;color: #067d62;margin: 20px;border-radius: 20px;
+}
+.eligible-for-free-delivery-text{
+    display: flex;
+    justify-content: center;
+   
+    margin-top:-18px ;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight:600;
+    color: #067d62;
+}
+.subtotal-text{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.gift-text{
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+}
+.proceed-to-pay-button{
+   margin-left: 60px;
+   margin-top: 15px;
+   background-color: #ffd500;
+   border: none;
+   padding: 8px 60px 8px 60px;
+   border-radius: 20px;
+   font-weight: 60;
+    
+}
+.proceed-to-pay-button:hover{
+    background-color: #eac405;
+    cursor: pointer;
+}
+body{
+    background-color: #eaeded;
+}
